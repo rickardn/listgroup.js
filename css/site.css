@@ -1,0 +1,61 @@
+.bs-docs-header {
+    background: -moz-linear-gradient(center top , #373737, #212121) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #dadada;
+}
+
+#forkme_banner {
+    background: url("../images/blacktocat.png") no-repeat scroll 95% 50% #0090ff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: block;
+    font-weight: 700;
+    padding: 10px 50px 10px 10px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    margin-top: -60px;
+    z-index: 10;
+}
+a#forkme_banner {
+    font-size: 16px;
+}
+
+#downloads {
+    background: url("../images/icon_download.png") no-repeat scroll 0 90% rgba(0, 0, 0, 0);
+    bottom: -95px;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    width: 210px;
+    z-index: 10;
+}
+
+.zip_download_link {
+    background: url("../images/sprite_download.png") no-repeat scroll left bottom rgba(0, 0, 0, 0);
+    display: block;
+    float: right;
+    height: 70px;
+    overflow: hidden;
+    text-indent: -5000px;
+    width: 90px;
+}
+
+.tar_download_link {
+    background: url("../images/sprite_download.png") no-repeat scroll right bottom rgba(0, 0, 0, 0);
+    display: block;
+    float: right;
+    height: 70px;
+    margin-left: 10px;
+    overflow: hidden;
+    text-indent: -5000px;
+    width: 90px;
+}
+
+.zip_download_link:hover {
+    background: url("../images/sprite_download.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+}
+.tar_download_link:hover {
+    background: url("../images/sprite_download.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+}
