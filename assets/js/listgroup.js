@@ -2,7 +2,7 @@
  * listgroup.js v1.0.0
  * http://rickardn.github.io/listgroup.js
  * ========================================================================
- * Copyright 2014 Rickard Nilsson (http://rickardnilsson.net)
+ * Copyright 2014 Rickard Nilsson
  * Licensed under MIT (https://github.com/rickardn/listgroup.js/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -130,7 +130,7 @@
         this.each(function (i, group) {
 
             // TODO: refactor to select class
-            if ($(group).prop('tagName') === 'SELECT') {
+            if ($(group).is('select')) {
 
                 var sl = new SelectList(group, option);
 
