@@ -1,10 +1,13 @@
 .bs-docs-header {
     background: -moz-linear-gradient(center top , #373737, #212121) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background-color:#000;
+    background-image: linear-gradient(to bottom, #373737 0px, #212121 100%) !important;
+    background-repeat: repeat-x;
     color: #dadada;
 }
 
 #forkme_banner {
-    background: url("../images/blacktocat.png") no-repeat scroll 95% 50% #0090ff;
+    background: url("../../images/blacktocat.png") no-repeat scroll 95% 50% #0090ff;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -23,7 +26,7 @@ a#forkme_banner {
 }
 
 #downloads {
-    background: url("../images/icon_download.png") no-repeat scroll 0 90% rgba(0, 0, 0, 0);
+    background: url("../../images/icon_download.png") no-repeat scroll 0 90% rgba(0, 0, 0, 0);
     bottom: -95px;
     height: 70px;
     position: absolute;
@@ -33,7 +36,7 @@ a#forkme_banner {
 }
 
 .zip_download_link {
-    background: url("../images/sprite_download.png") no-repeat scroll left bottom rgba(0, 0, 0, 0);
+    background: url("../../images/sprite_download.png") no-repeat scroll left bottom rgba(0, 0, 0, 0);
     display: block;
     float: right;
     height: 70px;
@@ -43,7 +46,7 @@ a#forkme_banner {
 }
 
 .tar_download_link {
-    background: url("../images/sprite_download.png") no-repeat scroll right bottom rgba(0, 0, 0, 0);
+    background: url("../../images/sprite_download.png") no-repeat scroll right bottom rgba(0, 0, 0, 0);
     display: block;
     float: right;
     height: 70px;
@@ -54,8 +57,8 @@ a#forkme_banner {
 }
 
 .zip_download_link:hover {
-    background: url("../images/sprite_download.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+    background: url("../../images/sprite_download.png") no-repeat scroll left top rgba(0, 0, 0, 0);
 }
 .tar_download_link:hover {
-    background: url("../images/sprite_download.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+    background: url("../../images/sprite_download.png") no-repeat scroll right top rgba(0, 0, 0, 0);
 }
