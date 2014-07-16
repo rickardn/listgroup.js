@@ -10,10 +10,6 @@
 +function ($) {
     "use strict";
 
-    var select,
-        unselect,
-        add,
-        init;
 
     // LISTGROUP PUBLIC CLASS DEFINITION
     // =======================
@@ -25,27 +21,25 @@
 
     ListGroup.prototype.init = function() {
         var me = this;
+        var $element = this.$element;
+        var options = this.options || {};
 
-        var $group = this.$element;
-        var config = this.options;
+        if (options.toggle)
+            $element.data('toggle', options.toggle);
 
-        if (config && config.toggle)
-            $group.data('toggle', config.toggle);
-
-        // TODO: refactor to .on('click'
-        $('.list-group-item', $group).click(function () {
+        $element.on('click', '.list-group-item', function () {
             var $item = $(this);
 
-            if ($group.data('toggle') == 'buttons') {
-                $item.toggleClass('active')
-                     .blur();
-            } else {
+            if ($element.data('toggle') == 'buttons')
+                $item.toggleClass('active');
+            else
                 me.unselect()
                   .select($item);
-            }
 
-            if (config && config.click)
-                config.click.apply(this);
+            $item.blur();
+
+            if (options.click)
+                options.click.apply(this);
 
             return false;
         });
@@ -63,11 +57,8 @@
     *     An array of values
     */
     ListGroup.prototype.select = function (item) {
-        var group = this.$element;
-
         if (item instanceof $)
-            item.addClass('active')
-                .blur();
+            item.addClass('active');
 
         if (typeof item === 'string')
             item = [item];
@@ -75,73 +66,18 @@
         if (Array.isArray(item)) {
             for (var i in item) {
                 var val = item[i];
-                $(group)
+                this.$element
                     .find('.list-group-item[data-value=\'' + val + '\']')
                     .addClass('active');
             }
         }
-    };
-
-    ListGroup.prototype.unselect = function (item) {
-        //unselect(this.$element, item);
-        var group = this.$element;
-
-        $(group).find('.list-group-item').each(function (i, listItem) {
-            $(listItem).removeClass('active');
-        });
-
         return this;
     };
 
-    
-   
-    //select = function (group, item) {
-    //    if ($(group).data('toggle') != 'buttons')
-    //        unselect(group);
-
-    //    if (item instanceof $)
-    //        item.addClass('active')
-    //            .blur();
-
-    //    if (typeof item === 'string')
-    //        item = [item];
-
-    //    if (Array.isArray(item)) {
-    //        for (var i in item) {
-    //            var val = item[i];
-    //            $(group)
-    //                .find('.list-group-item[data-value=\'' + val + '\']')
-    //                .addClass('active');
-    //        }
-    //    }
-    //};
-
-    //unselect = function (group, item) {
-    //    $(group).find('.list-group-item').each(function (i, listItem) {
-    //        $(listItem).removeClass('active');
-    //    });
-    //};
-
-    add = function (group, item) {
-        $(group).append(item);
+    ListGroup.prototype.unselect = function (selector) {
+        this.$element.find('.list-group-item').filter(selector || '*').removeClass('active');
+        return this;
     };
-
-    //init = function (group, config) {
-    //    if (config && config.toggle)
-    //        $(group).data('toggle', config.toggle);
-
-    //    // TODO: refactor to .on('click'
-    //    $('.list-group-item', group).click(function() {
-    //        var $item = $(this);
-
-    //        select(group, $item);
-
-    //        if (config && config.click)
-    //            config.click.apply(this);
-
-    //        return false;
-    //    });
-    //};
 
     // SELECTLIST PUBLIC CLASS DEFINITION
     // =======================
@@ -170,9 +106,9 @@
         if (!Array.isArray(value)) value = [value];
         if (!Array.isArray(values)) values = [values];
 
-        for (var i in values) {
+        for (var i in values)
             value.pop(values[i]);
-        }
+
         this.$element.val(value)
                      .change();
     };
@@ -180,36 +116,45 @@
     SelectList.prototype.createListGroup = function() {
         var $select = this.$element;
 
-        // create a list-group
         var listGroup = $('<ul class="list-group"></ul>');
 
         if ($select.attr('multiple'))
             listGroup.data('toggle', 'buttons');
 
         $select.find('option').each(function (j, item) {
-            var html = '<a href="#" class="list-group-item" ';
-            html += 'data-value="' + $(item).val() + '">'
-                 + $(item).text() + '</a>';
-
+            var html = '<a href="#" class="list-group-item" '
+                     + 'data-value="' + $(item).val() + '">'
+                     + $(item).text() + '</a>';
             var $item = $(html);
             listGroup.append($item);
         });
 
-        $select.change(function (e) {
-            listGroup.listgroup({ select: $select.val() });
+        $select.change(function () {
+            listGroup.listgroup({
+                unselect: '*',
+                select: $select.val()
+            });
         });
 
         listGroup.listgroup({
             select: $select.val(),
             click: function () {
-                // todo: multiple
-                $select.val($(this).data('value'));
+                var values = [];
+                listGroup.find('.list-group-item.active').each(function(i, item) {
+                    var data = $(item).data('value');
+                    if (data) values.push(data);
+                    else values.push($(item).text());
+                });
+                if (values.length == 1) values = values[0];
+                $select.val(values);
             }
         });
         $select.before(listGroup);
         this.$listGroup = listGroup;
 
-        // TODO: hide $select
+        if (!$.fn.listgroup.debug)
+            $select.hide();
+
         return listGroup;
     };
 
@@ -217,23 +162,20 @@
     // LIST GROUP PLUGIN DEFINITION
     // =======================
     $.fn.listgroup = function (option) {
-        return this.each(function (i, group) {
-            var $group = $(group);
+        return this.each(function (i, element) {
+            var $element = $(element);
 
-            var list = $group.data('listgroup');
+            var list = $element.data('listgroup');
             if (!list)
-                $group.data('listgroup', (list = $group.is('select')
-                    ? new SelectList(group, option)
-                    : new ListGroup(group, option)));
+                $element.data('listgroup', (list = $element.is('select')
+                    ? new SelectList(element, option)
+                    : new ListGroup(element, option)));
 
-            // move to constructor?
-            if (typeof option === 'object') {
+            // TODO: move to constructor?
+            if (option) {
 
                 if (option.unselect)
                     list.unselect(option.unselect);
-
-                if (option.add)
-                    add(group, option.add);
 
                 if (option.select)
                     list.select(option.select);
@@ -242,7 +184,6 @@
     };
 
     $(function () {
-        // todo: $.support
-        $('select.list-group').listgroup();
+        $('.list-group').listgroup();
     });
 }(jQuery);
