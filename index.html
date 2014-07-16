@@ -69,8 +69,9 @@
     <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Porta ac consectetur ac<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
     <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Vestibulum at eros<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
 <span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>select</span><span style='color:#a65700; '>></span>
-</code></pre></div>
-            
+</code></pre>
+                </div>
+
                 <h3 id="list-group-basic">Multiple select example</h3>
                 <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
 
@@ -83,15 +84,48 @@
                         <option>Vestibulum at eros</option>
                     </select>
                 </div>
-                <div class="highlight"><pre><code class="html"><span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>select multiple</span><span style='color:#a65700; '>></span>
-    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Cras justo odio<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
-    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Dapibus ac facilisis in<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
-    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Morbi leo risus<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
-    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Porta ac consectetur ac<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
-    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Vestibulum at eros<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
+                <div class="highlight">
+                    <pre><code class="html"><span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>select multiple</span><span style='color:#a65700; '>></span>
+                    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Cras justo odio<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
+                    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Dapibus ac facilisis in<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
+                    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Morbi leo risus<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
+                    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Porta ac consectetur ac<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
+                    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>Vestibulum at eros<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>option</span><span style='color:#a65700; '>></span>
 <span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>select</span><span style='color:#a65700; '>></span>
 </code></pre>
                 </div>
+
+
+                <h3 id="list-group-basic">JavaScript API example</h3>
+                <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
+
+                <div class="bs-example">
+                    <select id="js-ex1" multiple>
+                        <option value="1">Cras justo odio</option>
+                        <option value="2">Dapibus ac facilisis in</option>
+                        <option value="3">Morbi leo risus</option>
+                        <option value="4">Porta ac consectetur ac</option>
+                        <option value="5">Vestibulum at eros</option>
+                    </select>
+                </div>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span> <span style="color:#963dff">multiple</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"1"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"2"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"3"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"4"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"5"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span>
+&lt;<span style="color:#016cff">script</span>>
+    <span style="color:#a535ae">$</span>('<span style="color:#016cff">select</span>').listgroup({ select: [<span style="color:#666">"2"</span>,<span style="color:#666">"4"</span>] })
+&lt;/<span style="color:#016cff">script</span>>
+</code></pre></div>
+
+            
+                <h1 id="list-group" class="page-header">JavaScript API</h1>
+                <p class="lead">List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.</p>
+                <h3 id="list-group-basic">Basic example</h3>
+                <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
+
 
 
                 <h1 id="list-group" class="page-header">List group</h1>
@@ -107,13 +141,15 @@
                         <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                 </div>
-                <div class="highlight"><pre><code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Cras justo odio<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span></code></pre></div>
+                <div class="highlight">
+                    <pre><code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Cras justo odio<span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre>
+                </div>
                 <h3 id="list-group-badges">Badges</h3>
                 <p>Add the badges component to any list group item and it will automatically be positioned on the right.</p>
                 <div class="zero-clipboard"><span class="btn-clipboard with-example">Copy</span></div><div class="bs-example">
@@ -293,10 +329,13 @@
     <script src="./dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/docs.min.js"></script>
     <script src="./assets/js/listgroup.js"></script>
-    
+
     <script>
-        $(function() {
+        $(function () {
             $('select, .list-group').listgroup();
+
+            $('#js-ex1').listgroup({ select: ["2","4"] });
+            //$('#js-ex1').listgroup({ select: $('#js-ex1 option') });
         });
     </script>
     <div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" title="" data-original-title="Copy to clipboard">      <object width="100%" height="100%" id="global-zeroclipboard-flash-bridge" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">         <param value="/assets/flash/ZeroClipboard.swf?noCache=1405247813546" name="movie">         <param value="sameDomain" name="allowScriptAccess">         <param value="exactfit" name="scale">         <param value="false" name="loop">         <param value="false" name="menu">         <param value="best" name="quality">         <param value="#ffffff" name="bgcolor">         <param value="transparent" name="wmode">         <param value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" name="flashvars">         <embed width="100%" height="100%" scale="exactfit" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" type="application/x-shockwave-flash" allowfullscreen="false" allowscriptaccess="sameDomain" name="global-zeroclipboard-flash-bridge" bgcolor="#ffffff" quality="best" menu="false" loop="false" src="/assets/flash/ZeroClipboard.swf?noCache=1405247813546"></object></div>
