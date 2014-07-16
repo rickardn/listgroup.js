@@ -24,42 +24,53 @@
     };
 
     ListGroup.prototype.init = function() {
-        init(this.$element, this.options);
+        var me = this;
+
+        var $group = this.$element;
+        var config = this.options;
+
+        if (config && config.toggle)
+            $group.data('toggle', config.toggle);
+
+        // TODO: refactor to .on('click'
+        $('.list-group-item', $group).click(function () {
+            var $item = $(this);
+
+            if ($group.data('toggle') == 'buttons') {
+                $item.toggleClass('active')
+                     .blur();
+            } else {
+                me.unselect()
+                  .select($item);
+            }
+
+            if (config && config.click)
+                config.click.apply(this);
+
+            return false;
+        });
     };
 
-    ListGroup.prototype.select = function (item) {
-        select(this.$element, item);
-    };
-
-    ListGroup.prototype.unselect = function (item) {
-        unselect(this.$element, item);
-    };
-
-    
     /* item can be any of the following:
-     *  1. selection
-     *     Type: jQuery
-     *     An existing jQuery object to select
-     *  2. value
-     *     Type: string
-     *     A value 
-     *  3. values
-     *     Type: Array
-     *     An array of values
-     */
-    select = function (group, item) {
-        //todo: if ($(group).data('toggle') != 'buttons')
-        unselect(group);
+    *  1. selection
+    *     Type: jQuery
+    *     An existing jQuery object to select
+    *  2. value
+    *     Type: string
+    *     A value 
+    *  3. values
+    *     Type: Array
+    *     An array of values
+    */
+    ListGroup.prototype.select = function (item) {
+        var group = this.$element;
 
         if (item instanceof $)
-            item
-                .addClass('active')
+            item.addClass('active')
                 .blur();
 
         if (typeof item === 'string')
-            $(group)
-                .find('.list-group-item[data-value=\'' + item + '\']')
-                .addClass('active');
+            item = [item];
 
         if (Array.isArray(item)) {
             for (var i in item) {
@@ -71,32 +82,66 @@
         }
     };
 
-    unselect = function (group, item) {
+    ListGroup.prototype.unselect = function (item) {
+        //unselect(this.$element, item);
+        var group = this.$element;
+
         $(group).find('.list-group-item').each(function (i, listItem) {
             $(listItem).removeClass('active');
         });
+
+        return this;
     };
+
+    
+   
+    //select = function (group, item) {
+    //    if ($(group).data('toggle') != 'buttons')
+    //        unselect(group);
+
+    //    if (item instanceof $)
+    //        item.addClass('active')
+    //            .blur();
+
+    //    if (typeof item === 'string')
+    //        item = [item];
+
+    //    if (Array.isArray(item)) {
+    //        for (var i in item) {
+    //            var val = item[i];
+    //            $(group)
+    //                .find('.list-group-item[data-value=\'' + val + '\']')
+    //                .addClass('active');
+    //        }
+    //    }
+    //};
+
+    //unselect = function (group, item) {
+    //    $(group).find('.list-group-item').each(function (i, listItem) {
+    //        $(listItem).removeClass('active');
+    //    });
+    //};
 
     add = function (group, item) {
         $(group).append(item);
     };
 
-    init = function (group, config) {
-        if (config && config.toggle)
-            $(group).data('toggle', config.toggle);
+    //init = function (group, config) {
+    //    if (config && config.toggle)
+    //        $(group).data('toggle', config.toggle);
 
-        // TODO: refactor to .on('click'
-        $('.list-group-item', group).click(function() {
-            var $item = $(this);
+    //    // TODO: refactor to .on('click'
+    //    $('.list-group-item', group).click(function() {
+    //        var $item = $(this);
 
-            select(group, $item);
+    //        select(group, $item);
 
-            if (config && config.click)
-                config.click.apply(this);
+    //        if (config && config.click)
+    //            config.click.apply(this);
 
-            return false;
-        });
-    };
+    //        return false;
+    //    });
+    //};
 
     // SELECTLIST PUBLIC CLASS DEFINITION
     // =======================
@@ -116,6 +161,19 @@
         } 
 
         this.$element.val(values)
+                     .change();
+    };
+
+    SelectList.prototype.unselect = function(values) {
+        var value = this.$element.val();
+
+        if (!Array.isArray(value)) value = [value];
+        if (!Array.isArray(values)) values = [values];
+
+        for (var i in values) {
+            value.pop(values[i]);
+        }
+        this.$element.val(value)
                      .change();
     };
 
@@ -144,6 +202,7 @@
         listGroup.listgroup({
             select: $select.val(),
             click: function () {
+                // todo: multiple
                 $select.val($(this).data('value'));
             }
         });
@@ -158,87 +217,32 @@
     // LIST GROUP PLUGIN DEFINITION
     // =======================
     $.fn.listgroup = function (option) {
-        var init,
-            config = option;
-
-        init = function (group) {
-            // TODO: move to constructor
-            if (config && config.toggle)
-                $(group).data('toggle', config.toggle);
-
-            // TODO: move to constructor?
-            // TODO: refactor to .on('click'
-            $('.list-group-item', group).click(function() {
-                var $item = $(this);
-
-                select(group, $item);
-
-                if (config && config.click)
-                    config.click.apply(this);
-
-                return false;
-            });
-        };
-
-        this.each(function (i, group) {
-
-            // you should be able to use the same API regardsless if you're using a select or a list-group
-            // 
-
+        return this.each(function (i, group) {
             var $group = $(group);
 
-            var data = $group.data('listgroup');
-            if (!data)
-                $group.data('listgroup', (data = $group.is('select')
+            var list = $group.data('listgroup');
+            if (!list)
+                $group.data('listgroup', (list = $group.is('select')
                     ? new SelectList(group, option)
                     : new ListGroup(group, option)));
 
-            //if ($group.is('select')) {
-            //    var data = $group.data('select');
-            //    if (!data) $group.data('select', (data = new SelectList(group, option)));
-            //    return true;
-            //}
+            // move to constructor?
+            if (typeof option === 'object') {
 
-            // else group is a list-group
+                if (option.unselect)
+                    list.unselect(option.unselect);
 
-            //var data = $group.data('listgroup');
-            //if (!data) $group.data('listgroup', (data = new ListGroup(group, option)));
+                if (option.add)
+                    add(group, option.add);
 
-
-            // move to constructor? - these are different 
-            if (typeof config === 'object') {
-
-                if (config.unselect) {
-                    data.unselect(config.unselect);
-                }
-
-                if (config.add) {
-                    add(group, config.add);
-                }
-
-                if (config.select) {
-                    data.select(config.select);
-                }
-
-                // note: should it be possible to redefine click?
-                if (config.click) {
-                    // move to constructor?
-                    //init(group);
-                }
-
-            } else {
-                //init(group);
+                if (option.select)
+                    list.select(option.select);
             }
         });
-
-        // remove item
-        // value?
-
-        return this;
     };
 
-    //$(function () {
-    //    // todo: $.support
-    //    $('.list-group').listgroup();
-    //});
+    $(function () {
+        // todo: $.support
+        $('select.list-group').listgroup();
+    });
 }(jQuery);
