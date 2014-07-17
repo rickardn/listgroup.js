@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="./favicon.ico">
-    <title>Listgroup plugin for Bootstrap</title>
+    <title>listgroup.js &middot; plugin for Bootstrap</title>
     <!-- Bootstrap core CSS -->
     <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -48,245 +48,69 @@
             <div class="col-md-9">
 
                 <h1 id="overview" class="page-header">Overview</h1>
-                <p class="lead">Lorem ipsum dolor sumit</p>
+                <p class="lead">This plugin continues where Bootstrap ends and provides dynamic behavior for their list groups. Beyond that, it provides the means to turn an HTML select element into a styled list group with corresponding select behavior and with the select element as hidden data source such that form posts are retained.</p>
 
-                <h3 id="list-group-basic">Basic example</h3>
-                <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
+                <h3 id="list-group-basic">Basic example: list group</h3>
+                <p>The most basic example is simply an unordered list with list items, and the proper classes as provided by Bootstrap. When you drop in the <code>listgroup.js</code> plugin all lists with the <code>.list-group</code> class will automatically be augmented with selectable behavior leveraging the <code>.active</code> class.</p>
 
-                <div class="bs-example">
-                    <select>
-                        <option>Cras justo odio</option>
-                        <option>Dapibus ac facilisis in</option>
-                        <option>Morbi leo risus</option>
-                        <option>Porta ac consectetur ac</option>
-                        <option>Vestibulum at eros</option>
-                    </select>
-                </div>
-                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre></div>
-
-                <h3 id="list-group-basic">Multiple select example</h3>
-                <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
-
-                <div class="bs-example">
-                    <select multiple>
-                        <option>Cras justo odio</option>
-                        <option>Dapibus ac facilisis in</option>
-                        <option>Morbi leo risus</option>
-                        <option>Porta ac consectetur ac</option>
-                        <option>Vestibulum at eros</option>
-                    </select>
-                </div>
-                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span> <span style="color:#963dff">multiple</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre></div>
-
-
-                <h3 id="list-group-basic">JavaScript API example</h3>
-                <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
-
-                <div class="bs-example">
-                    <select id="js-ex1" multiple>
-                        <option value="1">Cras justo odio</option>
-                        <option value="2">Dapibus ac facilisis in</option>
-                        <option value="3">Morbi leo risus</option>
-                        <option value="4">Porta ac consectetur ac</option>
-                        <option value="5">Vestibulum at eros</option>
-                    </select>
-                </div>
-                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span> <span style="color:#963dff">multiple</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"1"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"2"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"3"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"4"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">value</span>=<span style="color:#666">"5"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
-<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span>
-&lt;<span style="color:#016cff">script</span>>
-    <span style="color:#a535ae">$</span>('<span style="color:#016cff">select</span>').listgroup({ select: [<span style="color:#666">"2"</span>,<span style="color:#666">"4"</span>] })
-&lt;/<span style="color:#016cff">script</span>>
-</code></pre></div>
-
-            
-                <h1 id="list-group" class="page-header">JavaScript API</h1>
-                <p class="lead">List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.</p>
-                <h3 id="list-group-basic">Basic example</h3>
-                <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
-
-
-
-                <h1 id="list-group" class="page-header">List group</h1>
-                <p class="lead">List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.</p>
-                <h3 id="list-group-basic">Basic example</h3>
-                <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
                 <div class="bs-example">
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item active">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Morbi leo risus</li>
                         <li class="list-group-item">Porta ac consectetur ac</li>
                         <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                 </div>
-                <div class="highlight">
-                    <pre><code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Cras justo odio<span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span></code></pre>
-                </div>
-                <h3 id="list-group-badges">Badges</h3>
-                <p>Add the badges component to any list group item and it will automatically be positioned on the right.</p>
-                <div class="zero-clipboard"><span class="btn-clipboard with-example">Copy</span></div><div class="bs-example">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="badge">14</span>
-                            Cras justo odio
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge">2</span>
-                            Dapibus ac facilisis in
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge">1</span>
-                            Morbi leo risus
-                        </li>
-                    </ul>
-                </div>
-                <div class="highlight">
-                    <pre>
-<code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge"</span><span class="nt">&gt;</span>14<span class="nt">&lt;/span&gt;</span>
-        Cras justo odio
-                    <span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span></code>
-        </pre>
-                </div>
-                <h3 id="list-group-linked">Linked items</h3>
-                <p>Linkify list group items by using anchor tags instead of list items (that also means a parent <code>&lt;div&gt;</code> instead of an <code>&lt;ul&gt;</code>). No need for individual parents around each element.</p>
-                <div class="zero-clipboard"><span class="btn-clipboard with-example">Copy</span></div><div class="bs-example">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active">
-                            Cras justo odio
-                        </a>
-                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item">Morbi leo risus</a>
-                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item">Vestibulum at eros</a>
-                    </div>
-                </div>
-                <div class="highlight">
-                    <pre>
-<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item active"</span><span class="nt">&gt;</span>Cras justo odio<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code>
-        </pre>
-                </div>
-                <h3 id="list-group-disabled">Disabled items</h3>
-                <p>Add <code>.disabled</code> to a <code>.list-group-item</code> to gray it out to appear disabled.</p>
-                <div class="zero-clipboard"><span class="btn-clipboard with-example">Copy</span></div><div class="bs-example">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item disabled">
-                            Cras justo odio
-                        </a>
-                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item">Morbi leo risus</a>
-                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item">Vestibulum at eros</a>
-                    </div>
-                </div>
-                <div class="highlight">
-                    <pre>
-<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item disabled"</span><span class="nt">&gt;</span>Cras justo odio<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre>
-                </div>
-                <h3 id="list-group-contextual-classes">Contextual classes</h3>
-                <p>Use contextual classes to style list items, default or linked. Also includes <code>.active</code> state.</p>
-                <div class="zero-clipboard"><span class="btn-clipboard with-example">Copy</span></div><div class="bs-example">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-group">
-                                <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
-                                <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
-                                <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
-                                <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-success">Dapibus ac facilisis in</a>
-                                <a href="#" class="list-group-item list-group-item-info">Cras sit amet nibh libero</a>
-                                <a href="#" class="list-group-item list-group-item-warning">Porta ac consectetur ac</a>
-                                <a href="#" class="list-group-item list-group-item-danger">Vestibulum at eros</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="highlight">
-                    <pre>
-<code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-success"</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-info"</span><span class="nt">&gt;</span>Cras sit amet nibh libero<span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-warning"</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-danger"</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-success"</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-info"</span><span class="nt">&gt;</span>Cras sit amet nibh libero<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-warning"</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item list-group-item-danger"</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code>
-</pre>
-                </div>
-                <h3 id="list-group-custom-content">Custom content</h3>
-                <p>Add nearly any HTML within, even for linked list groups like the one below.</p>
-                <div class="zero-clipboard"><span class="btn-clipboard with-example">Copy</span></div><div class="bs-example">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="highlight">
-                    <pre>
-<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item active"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"list-group-item-heading"</span><span class="nt">&gt;</span>List group item heading<span class="nt">&lt;/h4&gt;</span>
-                    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"list-group-item-text"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/p&gt;</span>
-                    <span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code>
-</pre>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">ul</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">li</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item active"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">li</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">li</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">li</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">li</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">li</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">li</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">li</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">li</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">li</span>></span>
+<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">ul</span>></span></code></pre></div>
+
+
+                <h3 id="select-element-basic">Basic example: select element</h3>
+                <p>The basic example when you want to use a select element for the data but want the appearance of a list group is a simple select list with options. You turn it into a list group simply by adding the list-group class.</p>
+
+                <div class="bs-callout bs-callout-danger">
+                    <h4>The select element is hidden</h4>
+                    <p>The actual select element below is only visible here for you to see that it updates when you click the list items and vice versa. Normally it is hidden but still there if you need it.</p>
                 </div>
 
+                <div class="bs-example">
+                    <select class="list-group">
+                        <option>Cras justo odio</option>
+                        <option>Dapibus ac facilisis in</option>
+                        <option>Morbi leo risus</option>
+                        <option>Porta ac consectetur ac</option>
+                        <option>Vestibulum at eros</option>
+                    </select>
+                </div>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre></div>
+
+
+
+                <h3 id="data-attribute-api">Data attribute API</h3>
+                <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. Like in Bootstrap this is the first-class API and should be your first consideration.</p>
+
+                <h2 id="more-to-come">More to come</h2>
+                <p>Because this project just got off the ground not everything have been documented fully. Examples of functions that exist but which will be described here incrementally are</p>
+            
+                <ul>
+                    <li>Single vs multi select</li>
+                    <li>Disabled or hidden items</li>
+                    <li>The JavaScript API</li>
+                </ul>
+            
+                <p>Check out the status of the project and upcomming features on <a href="https://github.com/rickardn/listgroup.js">Github</a></p>
 
             </div><!-- /div.col-md-9-->
 
@@ -294,15 +118,15 @@
                 <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav bs-docs-sidenav">
                         <li class="active">
-                            <a href="#list-group">List group</a>
+                            <a href="#overview">Overview</a>
                             <ul class="nav">
-                                <li class=""><a href="#list-group-basic">Basic example</a></li>
-                                <li class="active"><a href="#list-group-badges">Badges</a></li>
-                                <li><a href="#list-group-linked">Linked items</a></li>
-                                <li><a href="#list-group-disabled">Disabled items</a></li>
-                                <li><a href="#list-group-contextual-classes">Contextual classes</a></li>
-                                <li><a href="#list-group-custom-content">Custom content</a></li>
+                                <li><a href="#list-group-basic">Basic example: list group</a></li>
+                                <li><a href="#select-element-basic">Basic example: select element</a></li>
+                                <li><a href="#data-attribute-api">Data attribute API</a></li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="#more-to-come">More to come</a>
                         </li>
                     </ul>
                 </div>
@@ -327,10 +151,7 @@
 
     <script>
         $(function () {
-            $.fn.listgroup.debug = true;
-            $('select').listgroup();
-
-            $('#js-ex1').listgroup({ select: ["2", "4"] });
+            $('select.list-group').show();
         });
     </script>
     <div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" title="" data-original-title="Copy to clipboard">      <object width="100%" height="100%" id="global-zeroclipboard-flash-bridge" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">         <param value="/assets/flash/ZeroClipboard.swf?noCache=1405247813546" name="movie">         <param value="sameDomain" name="allowScriptAccess">         <param value="exactfit" name="scale">         <param value="false" name="loop">         <param value="false" name="menu">         <param value="best" name="quality">         <param value="#ffffff" name="bgcolor">         <param value="transparent" name="wmode">         <param value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" name="flashvars">         <embed width="100%" height="100%" scale="exactfit" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" type="application/x-shockwave-flash" allowfullscreen="false" allowscriptaccess="sameDomain" name="global-zeroclipboard-flash-bridge" bgcolor="#ffffff" quality="best" menu="false" loop="false" src="/assets/flash/ZeroClipboard.swf?noCache=1405247813546"></object></div>
