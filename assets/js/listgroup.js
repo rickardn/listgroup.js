@@ -144,8 +144,7 @@
         $select.before($listGroup);
         this.$listGroup = $listGroup;
 
-        if (!$.fn.listgroup.debug)
-            $select.hide();
+        $select.hide();
 
         return $listGroup;
     };
