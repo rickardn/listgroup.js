@@ -15,14 +15,14 @@
     // =======================
     var ListGroup = function (element, options) {
         this.$element = $(element);
-        this.options = options;
+        this.options = options || {};
         this.init(element, options);
     };
 
     ListGroup.prototype.init = function() {
         var me = this;
         var $element = this.$element;
-        var options = this.options || {};
+        var options = this.options;
 
         if (options.toggle)
             $element.data('toggle', options.toggle);
@@ -33,7 +33,7 @@
             if ($element.data('toggle') == 'buttons')
                 $item.toggleClass('active');
             else
-                me.unselect()
+                me.unselect('*')
                   .select($item);
 
             $item.blur();
@@ -45,17 +45,6 @@
         });
     };
 
-    /* item can be any of the following:
-    *  1. selection
-    *     Type: jQuery
-    *     An existing jQuery object to select
-    *  2. value
-    *     Type: string
-    *     A value 
-    *  3. values
-    *     Type: Array
-    *     An array of values
-    */
     ListGroup.prototype.select = function (item) {
         if (item instanceof $)
             item.addClass('active');
@@ -75,9 +64,13 @@
     };
 
     ListGroup.prototype.unselect = function (selector) {
-        this.$element.find('.list-group-item').filter(selector || '*').removeClass('active');
+        this.$element
+                .find('.list-group-item')
+                .filter(selector || '*')
+                    .removeClass('active');
         return this;
     };
+
 
     // SELECTLIST PUBLIC CLASS DEFINITION
     // =======================
@@ -116,46 +109,45 @@
     SelectList.prototype.createListGroup = function() {
         var $select = this.$element;
 
-        var listGroup = $('<ul class="list-group"></ul>');
+        var $listGroup = $('<ul class="list-group"></ul>');
 
         if ($select.attr('multiple'))
-            listGroup.data('toggle', 'buttons');
+            $listGroup.data('toggle', 'buttons');
 
-        $select.find('option').each(function (j, item) {
-            var html = '<a href="#" class="list-group-item" '
-                     + 'data-value="' + $(item).val() + '">'
-                     + $(item).text() + '</a>';
-            var $item = $(html);
-            listGroup.append($item);
+        $select.find('option').each(function (i, item) {
+            var $item = $(item);
+            var $new = $('<a href="#" class="list-group-item" '
+                       + 'data-value="' + $item.val() + '">'
+                       + $item.text() + '</a>');
+            $listGroup.append($new);
         });
 
         $select.change(function () {
-            listGroup.listgroup({
+            $listGroup.listgroup({
                 unselect: '*',
                 select: $select.val()
             });
         });
 
-        listGroup.listgroup({
+        $listGroup.listgroup({
             select: $select.val(),
             click: function () {
                 var values = [];
-                listGroup.find('.list-group-item.active').each(function(i, item) {
-                    var data = $(item).data('value');
-                    if (data) values.push(data);
-                    else values.push($(item).text());
+                $listGroup.find('.list-group-item.active').each(function(i, item) {
+                    var value = $(item).data('value');
+                    values.push(value);
                 });
                 if (values.length == 1) values = values[0];
                 $select.val(values);
             }
         });
-        $select.before(listGroup);
-        this.$listGroup = listGroup;
+        $select.before($listGroup);
+        this.$listGroup = $listGroup;
 
         if (!$.fn.listgroup.debug)
             $select.hide();
 
-        return listGroup;
+        return $listGroup;
     };
 
     
@@ -171,7 +163,6 @@
                     ? new SelectList(element, option)
                     : new ListGroup(element, option)));
 
-            // TODO: move to constructor?
             if (option) {
 
                 if (option.unselect)
