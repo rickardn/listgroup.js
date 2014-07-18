@@ -111,16 +111,23 @@
     SelectList.prototype.createListGroup = function() {
         var $select = this.$element;
 
-        var $listGroup = $('<ul class="list-group"></ul>');
+        var $listGroup = $('<ul>').addClass('list-group');
 
         if ($select.attr('multiple'))
-            $listGroup.data('toggle', 'buttons');
+            $listGroup.attr('data-toggle', 'buttons');
 
         $select.find('option').each(function (i, item) {
             var $item = $(item);
-            var $new = $('<a href="#" class="list-group-item" '
-                       + 'data-value="' + $item.val() + '">'
-                       + $item.text() + '</a>');
+    
+            var $new = $('<a>')
+                        .attr('href', '#')
+                        .addClass('list-group-item')
+                        .attr('data-value', $item.val())
+                        .text($item.text());
+
+            if ($item.is(':disabled'))
+                $new.addClass('disabled');
+
             $listGroup.append($new);
         });
 
