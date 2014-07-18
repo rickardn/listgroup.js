@@ -16,7 +16,7 @@
     var ListGroup = function (element, options) {
         this.$element = $(element);
         this.options = options || {};
-        this.init(element, options);
+        this.init();
     };
 
     ListGroup.prototype.init = function() {
