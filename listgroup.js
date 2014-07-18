@@ -30,17 +30,19 @@
         $element.on('click', '.list-group-item', function () {
             var $item = $(this);
 
-            if ($element.data('toggle') == 'buttons')
-                $item.toggleClass('active');
-            else
-                me.unselect('*')
-                  .select($item);
+            if (!$item.hasClass('disabled')) {
+
+                if ($element.data('toggle') == 'buttons')
+                    $item.toggleClass('active');
+                else
+                    me.unselect('*')
+                      .select($item);
+
+                if (options.click)
+                    options.click.apply(this);
+            }
 
             $item.blur();
-
-            if (options.click)
-                options.click.apply(this);
-
             return false;
         });
     };
