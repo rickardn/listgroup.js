@@ -1,5 +1,5 @@
-/* ========================================================================
- * listgroup.js v1.0.0
+/*!========================================================================
+ * listgroup.js v1.1.0
  * http://rickardn.github.io/listgroup.js
  * ========================================================================
  * Copyright 2014 Rickard Nilsson
@@ -16,31 +16,33 @@
     var ListGroup = function (element, options) {
         this.$element = $(element);
         this.options = options || {};
-        this.init(element, options);
+        this.init();
     };
 
-    ListGroup.prototype.init = function() {
+    ListGroup.prototype.init = function () {
         var me = this;
         var $element = this.$element;
         var options = this.options;
 
         if (options.toggle)
-            $element.data('toggle', options.toggle);
+            $element.attr('data-toggle', options.toggle);
 
         $element.on('click', '.list-group-item', function () {
             var $item = $(this);
 
-            if ($element.data('toggle') == 'buttons')
-                $item.toggleClass('active');
-            else
-                me.unselect('*')
-                  .select($item);
+            if (!$item.hasClass('disabled')) {
+
+                if ($element.data('toggle') == 'items')
+                    $item.toggleClass('active');
+                else
+                    me.unselect('*')
+                      .select($item);
+
+                if (options.click)
+                    options.click.apply(this);
+            }
 
             $item.blur();
-
-            if (options.click)
-                options.click.apply(this);
-
             return false;
         });
     };
@@ -74,7 +76,7 @@
 
     // SELECTLIST PUBLIC CLASS DEFINITION
     // =======================
-    var SelectList = function(element, options) {
+    var SelectList = function (element, options) {
         this.$element = $(element);
         this.options = options;
         this.$listGroup = this.createListGroup();
@@ -83,17 +85,17 @@
     SelectList.prototype.select = function (values) {
         if (values instanceof $) {
             var vals = [];
-            values.each(function(i, element) {
+            values.each(function (i, element) {
                 vals.push($(element).val());
             });
             values = vals;
-        } 
+        }
 
         this.$element.val(values)
                      .change();
     };
 
-    SelectList.prototype.unselect = function(values) {
+    SelectList.prototype.unselect = function (values) {
         var value = this.$element.val();
 
         if (!Array.isArray(value)) value = [value];
@@ -106,19 +108,29 @@
                      .change();
     };
 
-    SelectList.prototype.createListGroup = function() {
+    SelectList.prototype.createListGroup = function () {
         var $select = this.$element;
 
-        var $listGroup = $('<ul class="list-group"></ul>');
+        var $listGroup = $('<ul>').addClass('list-group');
 
         if ($select.attr('multiple'))
-            $listGroup.data('toggle', 'buttons');
+            $listGroup.attr('data-toggle', 'items');
 
         $select.find('option').each(function (i, item) {
             var $item = $(item);
-            var $new = $('<a href="#" class="list-group-item" '
-                       + 'data-value="' + $item.val() + '">'
-                       + $item.text() + '</a>');
+
+            var $new = $('<a>')
+                        .attr('href', '#')
+                        .addClass('list-group-item')
+                        .attr('data-value', $item.val())
+                        .text($item.text());
+
+            if ($item.is(':disabled'))
+                $new.addClass('disabled');
+
+            if ($item.css('display') === 'none')
+                $new.addClass('hidden');
+
             $listGroup.append($new);
         });
 
@@ -133,7 +145,7 @@
             select: $select.val(),
             click: function () {
                 var values = [];
-                $listGroup.find('.list-group-item.active').each(function(i, item) {
+                $listGroup.find('.list-group-item.active').each(function (i, item) {
                     var value = $(item).data('value');
                     values.push(value);
                 });
@@ -149,7 +161,7 @@
         return $listGroup;
     };
 
-    
+
     // LIST GROUP PLUGIN DEFINITION
     // =======================
     $.fn.listgroup = function (option) {
