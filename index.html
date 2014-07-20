@@ -50,6 +50,11 @@
                 <h1 id="overview" class="page-header">Overview</h1>
                 <p class="lead">This plugin continues where Bootstrap ends and provides dynamic behavior for their list groups. Beyond that, it provides the means to turn an HTML select element into a styled list group with corresponding select behavior and with the select element as hidden data source such that form posts are retained.</p>
 
+                <div class="bs-callout bs-callout-info">
+                    <h4>Dependencies</h4>
+                    <p>Listgroup.js only depends on jQuery (which must be included before listgroup.js). This means no other Bootstrap plugin is required.</p>
+                </div>
+                
                 <h3 id="list-group-basic">Basic example: list group</h3>
                 <p>The most basic example is simply an unordered list with list items, and the proper classes as provided by Bootstrap. When you drop in the <code>listgroup.js</code> plugin all lists with the <code>.list-group</code> class will automatically be augmented with selectable behavior leveraging the <code>.active</code> class.</p>
 
@@ -73,7 +78,7 @@
 
 
                 <h3 id="select-element-basic">Basic example: select element</h3>
-                <p>The basic example when you want to use a select element for the data but want the appearance of a list group is a simple select list with options. You turn it into a list group simply by adding the list-group class.</p>
+                <p>The basic example when you want to use a <code>&lt;select&gt;</code> element for the data but want the appearance of a list group is a simple select list with options. You turn it into a list group simply by setting the <code>list-group</code> class.</p>
 
                 <div class="bs-callout bs-callout-danger">
                     <h4>The select element is hidden</h4>
@@ -101,8 +106,11 @@
 
 
                 <h3 id="data-attribute-api">Data attribute API</h3>
-                <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. Like in Bootstrap this is the first-class API and should be your first consideration.</p>
+                <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. Like in Bootstrap this is the first-class API and should be your first choice.</p>
 
+                <h3 id="overview-javascript-api">JavaScript API</h3>
+                <p></p>
+                
                 <h1 id="list-groups">List groups</h1>
                 <p>Foo bar baz</p>
             
@@ -111,7 +119,7 @@
             
                 <h3 id="list-groups-disabled-items">Multiple select</h3>
                 <div class="bs-example">
-                    <div class="list-group" data-toggle="buttons">
+                    <div class="list-group" data-toggle="items">
                         <a href="#" class="list-group-item active">Cras justo odio</a>
                         <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
                         <a href="#" class="list-group-item active">Morbi leo risus</a>
@@ -119,10 +127,10 @@
                         <a href="#" class="list-group-item">Vestibulum at eros</a>
                     </div>
                 </div>
-                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">div</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span> <span style="color:#963dff">data-toggle</span>=<span style="color:#666">"buttons"</span>></span>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">div</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span> <span style="color:#963dff">data-toggle</span>=<span style="color:#666">"items"</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item active"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item disabled"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item active"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
 <span style="color:#7a7a7a">&lt;/<span style="color:#016cff">div</span>></span></code></pre></div>
@@ -139,7 +147,7 @@
                 </div>
                 <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">div</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item disabled"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item </span><span style="background-color:yellow">disabled</span><span style="color:#666">"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
@@ -150,7 +158,7 @@
                 
                 <h3 id="select-lists-disabled-items">Disabled items</h3>
                 <div class="bs-example">
-                    <select class="list-group">
+                    <select class="list-group" multiple>
                         <option>Cras justo odio</option>
                         <option disabled>Dapibus ac facilisis in</option>
                         <option>Morbi leo risus</option>
@@ -158,13 +166,13 @@
                         <option>Vestibulum at eros</option>
                     </select>
                 </div>
-                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">div</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item disabled"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
-<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">div</span>></span></code></pre></div>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span> <span style="color:#963dff">multiple</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff;background-color:yellow">disabled</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff;background-color:yellow">disabled</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre></div>
 
 
                 <h2 id="more-to-come">More to come</h2>
