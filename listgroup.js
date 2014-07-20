@@ -25,7 +25,7 @@
         var options = this.options;
 
         if (options.toggle)
-            $element.data('toggle', options.toggle);
+            $element.attr('data-toggle', options.toggle);
 
         $element.on('click', '.list-group-item', function () {
             var $item = $(this);
