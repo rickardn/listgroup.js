@@ -56,7 +56,7 @@
                 </div>
                 
                 <h3 id="list-group-basic">Basic example: list group</h3>
-                <p>The most basic example is simply an unordered list with list items, and the proper classes as provided by Bootstrap. When you drop in the <code>listgroup.js</code> plugin all lists with the <code>.list-group</code> class will automatically be augmented with selectable behavior leveraging the <code>.active</code> class.</p>
+                <p>The most basic example is simply an unordered list with list items, and the proper classes as provided by Bootstrap. When you drop in the <code>listgroup.js</code> plugin all lists with the <code>list-group</code> class will automatically be augmented with selectable behavior leveraging the <code>active</code> class.</p>
 
                 <div class="bs-example">
                     <ul class="list-group">
@@ -78,7 +78,7 @@
 
 
                 <h3 id="select-element-basic">Basic example: select element</h3>
-                <p>The basic example when you want to use a <code>&lt;select&gt;</code> element for the data but want the appearance of a list group is a simple select list with options. You turn it into a list group simply by setting the <code>list-group</code> class.</p>
+                <p>The basic example of a <code>&lt;select&gt;</code> element is to simply add the <code>list-group</code> class. This will generate a list group with the select element as data source.</p>
 
                 <div class="bs-callout bs-callout-danger">
                     <h4>The select element is hidden</h4>
@@ -103,21 +103,43 @@
 <span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre>
                 </div>
 
-
-
                 <h3 id="data-attribute-api">Data attribute API</h3>
                 <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. Like in Bootstrap this is the first-class API and should be your first choice.</p>
 
                 <h3 id="overview-javascript-api">JavaScript API</h3>
-                <p></p>
+                <p>As with Bootstrap plugins you can also use listgroup.js through the JavaScript API. All public APIs are built using jQuery plugin conventions and style, which means you have chainable methods which returns the collection it acted on.</p>
+                
                 
                 <h1 id="list-groups">List groups</h1>
-                <p>Foo bar baz</p>
+                <p class="lead">List groups are a powerful Bootstrap component and is fully supported by listgroup.js (hence the name). Read the <a href="http://getbootstrap.com/components/#list-group" target="_blank">documentation for Bootstrap list groups</a> for detailed descriptions over its features such as badges, disabled items, contextual classes, and more.</p>
             
-                <h3 id="list-groups-single-select">Single select</h3>
-                <p>Single select is the default behavior - no need to do anything. <a href="#list-group-basic">See an example here</a></p>
+                <h3 id="list-groups-single-selection">Single selection</h3>
+                <p>Listgroup.js tries to mimic the behavior of select elements as well as conventions in other Bootstrap plugins. Thus single selection of list groups is the default.</p>
             
-                <h3 id="list-groups-disabled-items">Multiple select</h3>
+                <div class="bs-example">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Cras justo odio</a>
+                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item">Morbi leo risus</a>
+                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    </div>
+                </div>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">div</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item active"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item active"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
+<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">div</span>></span></code></pre></div>
+            
+                <h3 id="list-groups-multiple-selection">Multiple selection</h3>
+                <p>Add <code>data-toggle="items"</code> to a list group to activate the ability to select more than one item as well as checkbox style toggling .</p>
+                
+                <div class="bs-callout bs-callout-info">
+                    <p>Compare with toggling in the <a href="http://getbootstrap.com/javascript/#buttons" target="_blank">Button plugin</a></p>
+                </div>
+                
                 <div class="bs-example">
                     <div class="list-group" data-toggle="items">
                         <a href="#" class="list-group-item active">Cras justo odio</a>
@@ -127,7 +149,7 @@
                         <a href="#" class="list-group-item">Vestibulum at eros</a>
                     </div>
                 </div>
-                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">div</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span> <span style="color:#963dff">data-toggle</span>=<span style="color:#666">"items"</span>></span>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">div</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span> <span style="color:#963dff;background-color:yellow">data-toggle</span><span style="background-color:yellow">=</span><span style="color:#666;background-color:yellow">"items"</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item active"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item active"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
@@ -136,6 +158,8 @@
 <span style="color:#7a7a7a">&lt;/<span style="color:#016cff">div</span>></span></code></pre></div>
                
                 <h3 id="list-groups-disabled-items">Disabled items</h3>
+                <p>Bootstrap supports disabled list group items with the <code>disabled</code> class. Listgroup.js also support this by ignoring clicks on disabled items.</p>
+                
                 <div class="bs-example">
                     <div class="list-group">
                         <a href="#" class="list-group-item">Cras justo odio</a>
@@ -153,10 +177,34 @@
     <span style="color:#7a7a7a">&lt;<span style="color:#016cff">a</span> <span style="color:#963dff">href</span>=<span style="color:#666">"#"</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group-item"</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">a</span>></span>
 <span style="color:#7a7a7a">&lt;/<span style="color:#016cff">div</span>></span></code></pre></div>
 
-                <h1 id="select-lists">Select lists</h1>
-                <p>Foo bar baz</p>
+
+                <h1 id="select-elements">Select elements</h1>
+                <p class="lead">The HTML <code>&lt;select&gt;</code> element represents a list of options. Listgroup.js support this by automatically generating a list group with a list group item for each option.</p>
+                <p>An option can have different state or attributes including selected, disabled, and hidden. The state is translated to a similar concept in Bootstrap list groups. If an option has a value it is copied to the <code>data-value</code> attribute.</p>
                 
-                <h3 id="select-lists-disabled-items">Disabled items</h3>
+                <h3 id="select-elements-multiple-selection">Multiple selection</h3>
+                <p>By default only one option can be selected at a time. Add <code>multiple</code> attribute to a &lt;select&gt; element to indicate that multiple options can be selected in the list. With listgroup.js this also activates checkbox style toggling of items (instead of using <code>Ctrl+click</code>).</p>
+                
+                <div class="bs-example">
+                    <select class="list-group" multiple>
+                        <option selected="selected">Cras justo odio</option>
+                        <option>Dapibus ac facilisis in</option>
+                        <option selected="selected">Morbi leo risus</option>
+                        <option>Porta ac consectetur ac</option>
+                        <option>Vestibulum at eros</option>
+                    </select>
+                </div>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span> <span style="color:#963dff">multiple</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">selected</span>=<span style="color:#666">"selected"</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff">selected</span>=<span style="color:#666">"selected"</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre></div>
+                
+                <h3 id="select-elements-disabled-items">Disabled items</h3>
+                <p>Add <code>disabled</code> attribute to an option to make it not checkable and it won’t receive any browsing event, like mouse clicks or focus-related ones. This translates to the <code>disabled</code> class in Bootstrap.</p>
+                
                 <div class="bs-example">
                     <select class="list-group" multiple>
                         <option>Cras justo odio</option>
@@ -175,12 +223,31 @@
 <span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre></div>
 
 
+                <h3 id="select-elements-hidden-items">Hidden items</h3>
+                <p>Option elements which have the style <code>display:none</code> either directly or via a class are generated as hidden list group items using the <code>hidden</code> class.</p>
+                                
+                <div class="bs-example">
+                    <select class="list-group" multiple>
+                        <option>Cras justo odio</option>
+                        <option style="display:none">Dapibus ac facilisis in</option>
+                        <option>Morbi leo risus</option>
+                        <option class="hidden">Porta ac consectetur ac</option>
+                        <option>Vestibulum at eros</option>
+                    </select>
+                </div>
+                <div class="highlight"><pre><code class="html"><span style="color:#7a7a7a">&lt;<span style="color:#016cff">select</span> <span style="color:#963dff">class</span>=<span style="color:#666">"list-group"</span> <span style="color:#963dff">multiple</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Cras justo odio<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff;background-color:yellow">style</span><span style="background-color:yellow">=</span><span style="color:#666;background-color:yellow">"display:none"</span>></span>Dapibus ac facilisis in<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Morbi leo risus<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span> <span style="color:#963dff;background-color:yellow">class</span><span style="background-color:yellow">=</span><span style="color:#666;background-color:yellow">"hidden"</span>></span>Porta ac consectetur ac<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+    <span style="color:#7a7a7a">&lt;<span style="color:#016cff">option</span>></span>Vestibulum at eros<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">option</span>></span>
+<span style="color:#7a7a7a">&lt;/<span style="color:#016cff">select</span>></span></code></pre></div>
+
+
                 <h2 id="more-to-come">More to come</h2>
                 <p>Because this project just got off the ground not everything have been documented fully. Examples of functions that exist but which will be described here incrementally are</p>
 
                 <ul>
-                    <li>Single vs multi select</li>
-                    <li>Disabled or hidden items</li>
                     <li>The JavaScript API</li>
                 </ul>
 
@@ -191,22 +258,29 @@
             <div class="col-md-3">
                 <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav bs-docs-sidenav">
-                        <li>
+                        <li class="active">
                             <a href="#overview">Overview</a>
                             <ul class="nav">
                                 <li><a href="#list-group-basic">Basic example: list group</a></li>
                                 <li><a href="#select-element-basic">Basic example: select element</a></li>
                                 <li><a href="#data-attribute-api">Data attribute API</a></li>
-                                <li><a href="#">Programmatic API</a></li>
+                                <li><a href="#overview-javascript-api">JavaScript API</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#list-groups">List groups</a>
                             <ul class="nav">
-                                <li><a href="#">Single select</a></li>
-                                <li><a href="#">Multiple select</a></li>
+                                <li><a href="#list-groups-single-selection">Single selection</a></li>
+                                <li><a href="#list-groups-multiple-selection">Multiple selection</a></li>
                                 <li><a href="#list-groups-disabled-items">Disabled items</a></li>
-                                <li><a href="#">Contectual classes</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#select-elements">Select elements</a>
+                            <ul class="nav">
+                                <li><a href="#select-elements-multiple-selection">Multiple selection</a></li>
+                                <li><a href="#select-elements-disabled-items">Disabled items</a></li>
+                                <li><a href="#select-elements-hidden-items">Hidden items</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -228,7 +302,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/docs.min.js"></script>
-    <script src="file:///C:/Users/ksdrini/Documents/GitHub/listgroup.js/listgroup.js"></script>
+    <script src="./assets/js/listgroup.js"></script>
 
     <script>
         $(function () {
