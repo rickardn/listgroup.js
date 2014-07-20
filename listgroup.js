@@ -128,6 +128,9 @@
             if ($item.is(':disabled'))
                 $new.addClass('disabled');
 
+            if ($item.css('display') === 'none')
+                $new.addClass('hidden');
+
             $listGroup.append($new);
         });
 
