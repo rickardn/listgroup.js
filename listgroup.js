@@ -32,7 +32,7 @@
 
             if (!$item.hasClass('disabled')) {
 
-                if ($element.data('toggle') == 'buttons')
+                if ($element.data('toggle') == 'items')
                     $item.toggleClass('active');
                 else
                     me.unselect('*')
@@ -114,7 +114,7 @@
         var $listGroup = $('<ul>').addClass('list-group');
 
         if ($select.attr('multiple'))
-            $listGroup.attr('data-toggle', 'buttons');
+            $listGroup.attr('data-toggle', 'items');
 
         $select.find('option').each(function (i, item) {
             var $item = $(item);
