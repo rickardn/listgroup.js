@@ -1,7 +1,7 @@
 {
     "name": "listgroup",
     "title": "listgroup.js plugin for Bootstrap",
-    "description": "Automatically turn your select lists into bootstrap list groups or turn your bootstrap list groups into selectable lists.",
+    "description": "Automatically turn your select elements into bootstrap list groups or turn your bootstrap list groups into selectable lists.",
     "version": "1.1.2",
     "author": {
         "name": "Rickard Nilsson",
