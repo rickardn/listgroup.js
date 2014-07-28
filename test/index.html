@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>listgroup.js Test Suite</title>
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.14.0.css">
+    <style>
+        .hidden {display: none}
+    </style>
+    <script src="http://code.jquery.com/qunit/qunit-1.14.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://raw.githubusercontent.com/alex-seville/blanket/master/dist/qunit/blanket.min.js"></script>
+    <script src="../listgroup.js" data-cover></script>
+    <script src="test.js"></script>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+        <div id="single-el-listgroup1" class="list-group">
+            <a href="#" class="list-group-item">Cras justo odio</a>
+        </div>
+
+        <div id="anchor-listgroup1" class="list-group">
+            <a href="#" class="list-group-item">Cras justo odio</a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
+        </div>
+
+        <ul id="ul-listgroup1" class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+
+        <div>
+            <select id="select1">
+                <option value="1">Cras justo odio</option>
+                <option value="3">Dapibus ac facilisis in</option>
+                <option value="2">Morbi leo risus</option>
+                <option value="4">Porta ac consectetur ac</option>
+                <option value="5">Vestibulum at eros</option>
+            </select>
+        </div>
+        
+        <div>
+            <select id="select2" multiple>
+                <option value="1">Cras justo odio</option>
+                <option value="3">Dapibus ac facilisis in</option>
+                <option value="2">Morbi leo risus</option>
+                <option value="4">Porta ac consectetur ac</option>
+                <option value="5">Vestibulum at eros</option>
+            </select>
+        </div>
+    </div>
+</body>
+</html>
