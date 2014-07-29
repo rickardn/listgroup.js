@@ -26,6 +26,7 @@ a#forkme_banner {
 }
 
 #downloads {
+    display: none;
     background: url("../../images/icon_download.png") no-repeat scroll 0 90% rgba(0, 0, 0, 0);
     bottom: -68px;
     height: 70px;
@@ -46,6 +47,7 @@ a#forkme_banner {
     }
 
     #downloads {
+        display: block;
         bottom: -95px;
     }
 }
