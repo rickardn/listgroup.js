@@ -11,7 +11,7 @@ To get started checkout http://rickardn.github.io/listgroup.js/
 - Reference the `listgroup.js` or `listgroup.min.js` in your HTML document after jQuery
 - Done!
 
-## Unit test
+## Unit tests
 
 listgroup.js has a suite of [QUnit](http://qunitjs.com/) tests which can be run live
 
