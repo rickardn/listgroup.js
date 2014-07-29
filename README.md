@@ -10,3 +10,9 @@ To get started checkout http://rickardn.github.io/listgroup.js/
 - or [reference CDN version](https://cdn.jsdelivr.net/bootstrap.listgroup/1.1.2/listgroup.min.js)
 - Reference the `listgroup.js` or `listgroup.min.js` in your HTML document after jQuery
 - Done!
+
+## Unit test
+
+listgroup.js has a suite of [QUnit](http://qunitjs.com/) tests which can be run live
+
+- [Run all unit tests](http://rickardn.github.io/listgroup.js/test/?coverage=true) with code coverage reporting
