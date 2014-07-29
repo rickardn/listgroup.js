@@ -112,11 +112,18 @@
     test('should genereate hidden list group items', function () {
         expect(2)
 
+        var $div = $('<div>')
+
         var $select = $('<select>_</select>')
             .append('<option style="display:none">foo</option>')
-            .append('<option class="hidden">bar</option>') // class hidden must be defined as display:none
-            .listgroup(),
-            $listGroup = $select.siblings('.list-group')
+            .append('<option class="hidden">bar</option>') // any class works as long as its defined as display:none
+
+        $div.append($select)
+            .appendTo('#qunit-fixture')
+
+        $select.listgroup()
+
+        var $listGroup = $select.siblings('.list-group')
 
         $listGroup.find('.list-group-item').each(function(i, item) {
             ok($(item).hasClass('hidden'), 'list group item is hidden')
